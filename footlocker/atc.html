@@ -1,0 +1,55 @@
+<body onload="go()">
+<div class='body'>
+  <span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+  <div class='base'>
+    <span></span>
+    <div class='face'></div>
+  </div>
+</div>
+<div class='longfazers'>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+<h1>Trying to cook...</h1>
+
+
+<iframe name="frame" id="frame" width="0" height="0" border="0"></iframe>
+<form id="product_form" class="clearfix" method="post" action="https://www.footlocker.co.uk/en/addtocart">
+    <input type="hidden" name="SKU" id="sku" value=""/>
+		<input type="hidden" name="isOYS" value="1"/>
+		<input type="hidden" name="Quantity" value="1"/>
+		<input type="hidden" name="JumpTarget" value="ViewCheckoutOverview-Start"/>
+</form>
+
+<form id="checkout" class="clearfix" method="post" action="https://www.footlocker.co.uk/INTERSHOP/web/WFS/Footlocker-Footlocker_GB-Site/en_GB/-/GBP/ViewCheckoutOverview-Start?isOYS">
+</form>
+
+<script>
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        };
+async function go(){
+    document.getElementById('sku').value = getUrlVars()['sku'];
+    document.getElementById("product_form").submit();
+}
+</script>
+</body>
